@@ -1,5 +1,10 @@
-on: [push]
-
+on:
+  workflow_dispatch:
+    inputs:
+      executes:
+        description: 'Do you want to deploy to prod?'
+        required: true
+        default: 'false'
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest

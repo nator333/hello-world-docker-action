@@ -1,17 +1,11 @@
 # action.yml
 name: 'Hello World'
 description: 'Greet someone and record the time'
-on:
-  workflow_dispatch:
-    inputs:
-      executes:
-        description: 'Do you want to deploy to prod?'
-        required: true
-        default: 'false'
-#  who-to-greet:  # id of input
-#    description: 'Who to greet'
-#    required: true
-#    default: 'World'
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
 outputs:
   time: # id of output
     description: 'The time we greeted you'
@@ -19,7 +13,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    # - ${{ inputs.who-to-greet }}
-    - "World"
-
+    - ${{ inputs.who-to-greet }}
 
